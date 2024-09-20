@@ -29,24 +29,24 @@ pipeline {
         }
       }
     }
-//    stage('Deploying webapp container to Kubernetes') {
-//      steps {
-//        script {
-//          kubernetesDeploy(configs: "deployment.yaml", 
-//                                         "service.yaml")
-//        }
-//      }
-//    }
+    stage('Deploying webapp container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml", 
+                                         "service.yaml")
+        }
+      }
+    }
 //  stage('Apply Kubernetes files') {
 //    withKubeConfig([credentialsId: 'user1', serverUrl: 'https://api.k8s.my-company.com']) {
 //      sh 'kubectl apply -f deployment.yaml'
 //    }
 //  }
-    stage('Apply Kubernetes files') {
-      
-        steps{
-        sh 'echo "Hello, World!"'
-        }
-
-  }
+//    stage('Apply Kubernetes files') {
+//      
+//        steps{
+//        sh 'echo "Hello, World!"'
+//        }
+//
+//  }
 }
