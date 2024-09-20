@@ -35,18 +35,14 @@ pipeline {
       withKubeConfig(
         caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret',
          namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:63175') {
-      sh 'kubectl apply -f deployment.yaml'
+      //sh 'kubectl apply -f deployment.yaml'
+      sh 'kubectl version'
       }
     }
 
-//      withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:64976') {
-//          sh "kubectl get ns"
-//          sh "helm ls"
-//      }
-//
-//withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:63175') {
-//    sh 'kubectl apply -f deployment.yaml'
-//}
+
+
+
 
     }
 
