@@ -38,18 +38,18 @@ pipeline {
 //      }
 //    }
 
-//  stage('Apply Kubernetes files') {
-//    withKubeConfig([credentialsId: 'user1', serverUrl: 'https://api.k8s.my-company.com']) {
-//      sh 'kubectl apply -f deployment.yaml'
-//    }
-//  }
-    stage('Apply Kubernetes files') {
-      
-        steps{
-        sh 'kubectl apply -f deployment.yaml'
-        }
-
+  stage('Apply Kubernetes files') {
+      withKubeConfig(
+        caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret',
+         namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:63175') {
+    {
+      sh 'kubectl apply -f deployment.yaml'
+    }
   }
+
+}
+
+
 }
 
 }
