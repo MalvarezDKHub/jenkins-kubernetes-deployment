@@ -46,7 +46,7 @@ pipeline {
     stage('Apply Kubernetes files') {
       
         steps{
-        sh 'echo "Hello, World!"'
+        sh 'kubectl apply -f deployment.yaml'
         }
 
   }
