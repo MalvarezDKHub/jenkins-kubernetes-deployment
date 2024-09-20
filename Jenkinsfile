@@ -2,7 +2,6 @@ pipeline {
   environment {
     dockerimagename = "migueldkhub/helloworld"
     dockerImage = ""
-    //DOCKER_HOST = 'unix:///var/run/docker.sock'
   }
   agent any
   stages {
@@ -30,13 +29,23 @@ pipeline {
         }
       }
     }
-    stage('Deploying webapp container to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deployment.yaml", 
-                                         "service.yaml")
-        }
-      }
+//    stage('Deploying webapp container to Kubernetes') {
+//      steps {
+//        script {
+//          kubernetesDeploy(configs: "deployment.yaml", 
+//                                         "service.yaml")
+//        }
+//      }
+//    }
+//  stage('Apply Kubernetes files') {
+//    withKubeConfig([credentialsId: 'user1', serverUrl: 'https://api.k8s.my-company.com']) {
+//      sh 'kubectl apply -f deployment.yaml'
+//    }
+//  }
+
+    steps {
+        sh 'echo "Hello, World!"'
     }
+
   }
 }
