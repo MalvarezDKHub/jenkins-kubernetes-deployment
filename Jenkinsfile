@@ -42,9 +42,11 @@ pipeline {
 //      sh 'kubectl apply -f deployment.yaml'
 //    }
 //  }
-  stage('Apply Kubernetes files') {
-    sh 'echo "Hello, World!"'
-  }
+    stage('Apply Kubernetes files') {
+      
+        steps{
+        sh 'echo "Hello, World!"'
+        }
 
   }
 }
