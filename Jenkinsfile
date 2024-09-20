@@ -2,6 +2,7 @@ pipeline {
   environment {
     dockerimagename = "migueldkhub/helloworld"
     dockerImage = ""
+    DOCKER_HOST = 'unix:///var/run/docker.sock'
   }
   agent any
   stages {
