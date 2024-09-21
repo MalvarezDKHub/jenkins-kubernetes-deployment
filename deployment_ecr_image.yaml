@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-webapp
+  namespace: jenkins
+  labels:
+    app: test-webapp
+spec:
+  replicas: 2 #The number of pods to be created in the 
+   #Kubernetes cluster for the React.js application container
+  selector:
+    matchLabels:
+      app: test-webapp
+  template:
+    metadata:
+      labels:
+        app: test-webapp
+    spec:
+      containers:
+      - name: helloworld #The name of the react.js application container
+        #The Docker image for building the React.js application container
+        image: 419701376524.dkr.ecr.eu-south-2.amazonaws.com/ogip-producer:0.0.23
+        ports:
+        - containerPort: 8082 #The port for the React.js application container
