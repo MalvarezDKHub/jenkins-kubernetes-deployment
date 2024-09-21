@@ -6,7 +6,7 @@ metadata:
   name: test-webapp 
 spec:
   selector:
-    app: platzi-webapp 
+    app: test-webapp 
   type: LoadBalancer #Type of the Kubernetes Service
   ports:
   - protocol: TCP

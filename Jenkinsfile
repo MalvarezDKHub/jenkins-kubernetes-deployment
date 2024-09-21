@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "migueldkhub/helloworld"
     dockerImage = ""
   }
-  agent any
+  agent kubernetes
   stages {
     stage('Checkout Source') {
       steps {
@@ -46,6 +46,7 @@ pipeline {
           caCertificate: '', clusterName: 'dev-proactive', contextName: 'dev-proactive', credentialsId: 'dev-proactive-token',
           namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://56B47FBABCA86EE703CFF27207C63802.gr7.eu-south-2.eks.amazonaws.com') {
         sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl apply -f service.yaml'
         //sh 'kubectl version'
           } 
       }
