@@ -30,23 +30,26 @@ pipeline {
       }
     }
 
-  stage('Apply Kubernetes files') {
-    steps{
-      withKubeConfig(
-        caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret',
-         namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:58589') {
-      //sh 'kubectl apply -f deployment.yaml'
-      sh 'kubectl version'
+    //stage('Apply Kubernetes files') {
+    //  steps{
+    //    withKubeConfig(
+    //      caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret',
+    //      namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:58589') {
+    //    //sh 'kubectl apply -f deployment.yaml'
+    //    sh 'kubectl version'
+    //      } 
+    //  }
+    //}
+    stage('Apply Kubernetes files') {
+      steps{
+        withKubeConfig(
+          caCertificate: '', clusterName: 'dev-proactive', contextName: 'dev-proactive', credentialsId: 'dev-proactive-token',
+          namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://56B47FBABCA86EE703CFF27207C63802.gr7.eu-south-2.eks.amazonaws.com') {
+        //sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl version'
+          } 
       }
     }
-
-
-
-
-
-    }
-
-
   } 
 
 }
