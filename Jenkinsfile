@@ -34,7 +34,7 @@ pipeline {
     steps{
       withKubeConfig(
         caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube-jenkins-secret',
-         namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+         namespace: 'jenkins', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:58589') {
       //sh 'kubectl apply -f deployment.yaml'
       sh 'kubectl version'
       }
