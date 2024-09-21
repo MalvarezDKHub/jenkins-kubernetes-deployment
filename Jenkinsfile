@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "migueldkhub/helloworld"
     dockerImage = ""
   }
-  agent kubernetes
+  agent any
   stages {
     stage('Checkout Source') {
       steps {
