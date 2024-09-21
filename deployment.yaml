@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platzi-webapp
+  name: test-webapp
+  namespace: jenkins
   labels:
-    app: platzi-webapp
+    app: test-webapp
 spec:
   replicas: 2 #The number of pods to be created in the 
    #Kubernetes cluster for the React.js application container
   selector:
     matchLabels:
-      app: platzi-webapp
+      app: test-webapp
   template:
     metadata:
       labels:
-        app: platzi-webapp
+        app: test-webapp
     spec:
       containers:
       - name: helloworld #The name of the react.js application container
