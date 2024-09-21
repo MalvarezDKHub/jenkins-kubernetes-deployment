@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "migueldkhub/helloworld"
     dockerImage = ""
   }
-  agent any
+  agent master
   stages {
     stage('Checkout Source') {
       steps {
